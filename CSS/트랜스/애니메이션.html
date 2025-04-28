@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div_a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            width: 100vw;
+        }
+        .div_b{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .div_c{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+        div.active1{
+            animation-name: execute1;
+            animation-duration: 3s;
+            animation-iteration-count: 3;
+            animation-direction: alternate;
+        }
+        
+        @keyframes execute1 {
+             0%{
+                transform: translateX(0px) rotate(0deg);
+             }
+             20%{
+                transform: translateY(20px) rotateZ(50deg); background-color: aqua;
+             }
+             50%{
+                transform: translatex(30px) translateY(20px); background-color: green;
+             }
+             100%{
+                transform: translateX(40px) translateY(50px) rotate(100deg); background-color: brown;
+             }
+        }
+        div.nonactive1{
+            animation-name: nonexecute1;
+            animation-duration: 3s;
+            animation-iteration-count: 3;
+            animation-direction: alternate;
+        }
+        @keyframes nonexecute1{
+            from{
+                background-color: red;
+            }
+            to{
+                background-color: aqua;
+            }
+        }
+        div.active2{
+            animation-name: execute2;
+            animation-duration: 3s;
+            animation-iteration-count: 3;
+            animation-direction: alternate;
+        }
+        @keyframes execute2 {
+             0%{
+                transform: translateX(0px) rotate(0deg);
+             }
+             50%{
+                transform: translateX(50px) rotate(100deg);
+                transform: scale(1.5);
+                background-color: blue;
+                transition-duration: 5s;
+                transition-timing-function: ease-in;
+             }
+             80%{
+                transform: scale(0.5);
+                background-color: black;
+                transition-duration: 5s;
+                transition-timing-function: ease-in;
+             }
+             100%{
+                transform: translateY(20px) rotateZ(50deg); background-color: aqua;
+             }
+        }
+        div.active3{
+            animation-name: execute3;
+            animation-duration: 3s;
+            animation-iteration-count: 3;
+            animation-direction: alternate;
+        }
+        @keyframes execute3 {
+             0%{
+                transform: translateX(0px) rotate(0deg);
+             }
+             20%{
+                transform: translateX(40px) translateY(50px) skewX(50deg)skewY(50deg); background-color: blue;
+             }
+             50%{
+                transform: translatex(30px) translateY(20px); background-color: green;
+             }
+             100%{
+                transform: translateX(-40px) translateY(-50px) skewX(150deg)skewY(150deg); background-color: brown;
+             }
+        }
+        div.active4{
+            animation-name: execute4;
+            animation-duration: 3s;
+            animation-iteration-count: 3;
+            animation-direction: alternate;
+        }
+        @keyframes execute4 {
+             0%{
+                transform: translateX(0px) rotate(0deg);
+             }
+             20%{
+                transform: translateY(20px) rotateZ(50deg) skewY(50deg); background-color: aqua;
+             }
+             50%{
+                transform: translatex(30px) translateY(20px); background-color: green;
+             }
+             100%{
+                transform: translateX(40px) translateY(50px) skewX(50deg) rotate(100deg); background-color: brown;
+             }
+        }
+        div.nonactive2{
+            animation-name: nonexecute2;
+            animation-duration: 3s;
+            animation-iteration-count: 3;
+            animation-direction: alternate;
+        }
+        @keyframes nonexecute2{
+            from{
+                height: 100px;
+            }
+            to{
+                height: 200px;
+            }
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <input type="button" onclick="실행1()" value="기본"/>
+    <input type="button" onclick="실행2()" value="춤추기"/>
+    <input type="button" onclick="실행3()" value="춤추기"/>
+    <input type="button" onclick="실행4()" value="춤추기"/>
+    <div class="div_a">
+        <div class="div_c" id="nontarget1"></div>
+        <div class="div_b" id="target"></div>
+        <div class="div_c" id="nontarget2"></div>
+        
+    </div>
+    
+
+
+    <script>
+        function 실행1(){
+            document.getElementById('target').classList.toggle('active1');
+            document.getElementById('nontarget1').classList.toggle('nonactive1');
+            document.getElementById('nontarget2').classList.toggle('nonactive1');
+        }
+        function 실행2(){
+            document.getElementById('target').classList.toggle('active2');
+            document.getElementById('nontarget1').classList.toggle('nonactive2');
+            document.getElementById('nontarget2').classList.toggle('nonactive2');
+        }
+        function 실행3(){
+            document.getElementById('target').classList.toggle('active3');
+            document.getElementById('nontarget1').classList.toggle('nonactive2');
+            document.getElementById('nontarget2').classList.toggle('nonactive2');
+        }
+        function 실행4(){
+            document.getElementById('target').classList.toggle('active4');
+            document.getElementById('nontarget1').classList.toggle('nonactive2');
+            document.getElementById('nontarget2').classList.toggle('nonactive2');
+        }
+    </script>
+
+</body>
+</html>

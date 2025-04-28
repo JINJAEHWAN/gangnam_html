@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="num1"/>
+    <input type="text" id="num2"/>
+    <input type="radio" name="op" value="1"/> +
+    <input type="radio" name="op" value="2"/> -
+    <input type="radio" name="op" value="3"/> *
+    <input type="radio" name="op" value="4"/> /
+    <input type="button" onclick="gugudan()" value="계산" /><br/>
+    <input type="text" id="result_for"/>
+    <script>
+        function gugudan(){
+            const result_for = document.getElementById('result_for');
+            const num1 = document.getElementById('num1');
+            const num2 = document.getElementById('num2');
+            const oper = document.getElementsByName('op');
+            let results ='';
+
+            for(let i=0; i<oper.length; i++){
+                if(oper[i].checked){
+                    console.log(oper[i].value);
+                    results = oper[i].value;
+                }
+            }
+
+            switch(results){
+                case '1':
+                    result = parseInt(num1.value)+parseInt(num2.value);
+                    break;
+                case '2':
+                    result = parseInt(num1.value)-parseInt(num2.value);
+                    break;
+                case '3':
+                    result = parseInt(num1.value)*parseInt(num2.value);
+                    break;
+                case '4':
+                    result = parseFloat(num1.value)/parseFloat(num2.value);
+                    break;
+                default:
+                    alert('계산 안됩니다.');
+            }
+            num1.value = '';
+            num2.value = '';
+            console.log(result);
+            result_for.value= result;
+        }
+
+    </script>
+</body>
+</html>

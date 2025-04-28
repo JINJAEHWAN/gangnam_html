@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex 세로 정렬</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #e0f7fa;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column; /* 세로 정렬 */
+      gap: 20px;
+    }
+
+    .card {
+      width: 200px;
+      height: 100px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">카드 A</div>
+    <div class="card">카드 B</div>
+    <div class="card">카드 C</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Horizontal Cards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .card {
+            display: flex;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .card-title {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .like-section {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .like-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        .like-count {
+            font-size: 0.9em;
+            color: #e74c3c;
+        }
+
+        .card-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-content">
+                <div>
+                    <span class="card-tag">프로그래밍</span>
+                    <span class="card-tag">웹개발</span>
+                </div>
+                <h3 class="card-title">HTML과 CSS 기초</h3>
+                <p class="card-description">웹 개발의 기본이 되는 HTML과 CSS의 기초를 배워봅니다. 태그의 의미와 스타일링 방법을 알아보세요.</p>
+                <div class="card-footer">
+                    <div class="like-section">
+                        <button class="like-button">❤️</button>
+                        <span class="like-count">42</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="card-content">
+                <div>
+                    <span class="card-tag">디자인</span>
+                    <span class="card-tag">UI/UX</span>
+                </div>
+                <h3 class="card-title">사용자 경험 디자인</h3>
+                <p class="card-description">좋은 사용자 경험을 만드는 방법을 알아보세요. 사용자가 쉽고 편리하게 사용할 수 있는 인터페이스 설계 방법을 배웁니다.</p>
+                <div class="card-footer">
+                    <div class="like-section">
+                        <button class="like-button">❤️</button>
+                        <span class="like-count">38</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <div class="card-content">
+                <div>
+                    <span class="card-tag">프로그래밍</span>
+                    <span class="card-tag">자바스크립트</span>
+                </div>
+                <h3 class="card-title">자바스크립트 입문</h3>
+                <p class="card-description">웹 페이지에 동적인 기능을 추가하는 자바스크립트의 기초를 배워봅니다. 변수, 함수, 조건문 등 기본 개념을 알아보세요.</p>
+                <div class="card-footer">
+                    <div class="like-section">
+                        <button class="like-button">❤️</button>
+                        <span class="like-count">56</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

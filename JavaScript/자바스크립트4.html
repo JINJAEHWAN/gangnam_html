@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="button" value="버튼 클릭" onclick="동작()"/>
+    <input type="button" value="나이 클릭" onclick="prom()"/>
+    <input type="button" value="나이 클릭" onclick="conf()"/>
+    <script>
+        function 동작(){
+            console.log("동작");
+            //사용자에게 알림.
+            alert('실행');
+        }
+        function prom(){
+            const userAge= prompt('당신의 나이는?');
+            if(userAge >=20){
+                alert('성인');
+            }
+            else if(userAge > 12 && userAge<20){
+                alert('청소년');
+            }else{
+                alert('어린이');
+            }
+            //20세 미만이면  청소년
+            // 20세 이상이면 성인.
+        }
+
+        //안 이쁘면, 사용도 안한다.
+        //JS만 사용하는 경우, 대상 (만드는 사이트가 누가 사용하느냐에 따라서, 인터페이스 결정.)
+        //(일반 성인, 어린 학생 등 사용 이 많을 경우는  cs로 꾸미면 좋음.)
+        function conf(){
+            const eng = confirm("당신은 영어를 할 수 있습니까?");
+            alert(eng);
+        }
+    </script>
+</body>
+</html>

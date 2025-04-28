@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h3{
+            background-color: gray;
+        }
+        .out_box{
+            width: 800px;
+            height: 1000px;
+            border: 3px solid black;
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner_box{
+            display: flex;
+            text-align: center; 
+            width: 100%;
+            height:5%;
+            
+        }
+
+        .inner_box2{
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            text-align: center; 
+            width: 100%;
+            height:22px;
+            
+        }
+
+        .inner_box3{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height:5%;
+            
+        }
+
+        .div_a{ 
+            margin-top: 10px;
+            border-radius: 10px;
+            border: 1px solid black;
+            display: flex;
+            width: 100%;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .div_a input[type="text"], [type="password"], [type="email"]{
+            width: 100%;
+            outline: none;
+            border: none;
+
+            font-size: 20px;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .div_a .btn {
+            margin: 5px;
+            width: 100px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #16513d;
+            color: white;
+
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .div_b{
+            margin-top: 10px;
+            border-radius: 10px;
+            border: 1px solid black;
+            display: flex;
+            width: 100%;
+            height: 40px;
+            overflow: hidden;
+        }
+        .div_b input[type="text"], [type="password"]{
+            width: 50%;
+            outline: none;
+            border: none;
+
+            font-size: 20px;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .dis_none{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+    <div class="out_box">
+        <div class="inner_box">
+            <h3>회원가입</h3>
+        </div>
+        <span class="dis_none" id="spanId">사용할 수 없는 아이디입니다.</span><br/>
+        <div class="inner_box">
+            <div class="div_a">
+                <input id="text_id" placeholder="아이디" type="text" max="22" />
+                <div class="btn" onclick="중복체크()">중복체크</div>
+            </div>
+        </div>
+        <span class="dis_none" id="spanId2">비밀번호는 4~12자리를 담아야 합니다.</span><br/>
+        <div class="inner_box">
+            <div class="div_a">
+                <input id="pwd_first" placeholder="비밀번호" type="password" max="22" onkeyup="비밀번호체크()" />
+            </div>
+        </div>
+        <span class="dis_none" id="spanId3">비밀번호는 4~12자리를 담아야 합니다.</span><br/>
+        <div class="inner_box">
+            <div class="div_a">
+                <input id="pwd_check" placeholder="비밀번호 확인" type="password" max="22" onkeyup="비밀번호체크2()" />
+            </div>
+        </div>
+        <div class="inner_box">
+            <div class="div_a">
+                <input id="email" placeholder="이메일" type="email" max="30" />
+            </div>
+        </div>
+        <div class="inner_box">
+            <div class="div_a">
+                <input id="name" placeholder="이름" type="password" max="22"/>
+            </div>
+        </div>
+        <h3>개인 신상 정보</h3>
+        <div class="inner_box">
+            <div class="div_b">
+                <input id="person_id_first" placeholder="주민등록번호앞자리" type="text" max="6"/>
+                <input type="password" placeholder="주민등록번호뒷자리" id="person_id_last"/>
+            </div>
+        </div>
+        <div class="inner_box">
+            <div class="div_a">
+                <input id="annual" placeholder="생년월일" type="text" max="22"/>
+            </div>
+        </div>
+        <div class="inner_box2">
+            <input type="checkbox" name="interest" value="컴퓨터"/> 컴퓨터
+            <input type="checkbox" name="interest" value="인터넷"/> 인터넷
+            <input type="checkbox" name="interest" value="여행"/> 여행
+            <input type="checkbox" name="interest" value="영화감상"/> 영화감상
+            <input type="checkbox" name="interest" value="음악감상"/> 음악감상 
+        </div>
+        <div class="inner_box3">
+            <textarea name="introducing" id="textarea_a"></textarea>
+        </div>
+        <div class="inner_box3">
+            <input type="button" value="회원가입" onclick="register()" />
+                <input type="reset" value="다시 입력" />
+        </div>
+    </div> 
+    </form>
+    <script>
+
+
+        function 중복체크(){
+            const spanId = document.getElementById('spanId');
+            const text_id = document.getElementById('text_id');
+            if(text_id.value==='id12345'){
+                spanId.style.display="block";
+                spanId.innerHTML ="사용할 수 없는 아이디입니다.";
+            }else{
+                spanId.style.display="none";
+            }
+            if(fourtotwelve(text_id)) {
+                spanId.style.display="block";
+                spanId.innerHTML = "4자에서 12자가 아닙니다.";
+            }
+            if(pat_method(text_id)){
+                spanId.style.display="block";
+                spanId.innerHTML ="한글 혹은 특수기호가 있습니다.";
+            }
+
+        }
+        function 비밀번호체크(){
+            const pwd_first = document.getElementById('pwd_first');
+            const spanId2 = document.getElementById('spanId2');
+            if(fourtotwelve(pwd_first)) {
+                spanId2.style.display="block";
+                spanId2.innerHTML = "4자에서 12자가 아닙니다.";
+            }else{
+                spanId2.style.display="none";
+            }
+            if(pat_method(pwd_first)){
+                spanId2.style.display="block";
+                spanId2.innerHTML ="한글 혹은 특수기호가 있습니다.";
+            }
+        }
+
+        function 비밀번호체크2(){
+            const pwd_first = document.getElementById('pwd_first');
+            const pwd_check = document.getElementById('pwd_check');
+            const spanId3 = document.getElementById('spanId3');
+
+            if(pwd_first.value != pwd_check.value){
+                spanId3.style.display="block";
+                spanId3.innerHTML ="비밀번호가 같지 않습니다.";
+            }
+        }
+
+
+        function fourtotwelve(ab){
+            if((ab.value.length>=4) && (ab.value.length<=12)){
+                return false
+            }else{
+                return true;
+            }
+        }
+
+        function pat_method(ab){
+            var pattern1 = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; //한글
+            var pattern2 = /[~!@#\#$%<>^&*]/; //특수문자
+
+            if((pattern1.test(ab.value))||(pattern2.test(ab.value))){
+                    return true;
+                }else{
+                    return false;
+                }
+        }
+    </script>
+</body>
+</html>

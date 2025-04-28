@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 200vh;
+        }
+        .origin{
+            background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230411/pngtree-spring-nature-background-with-pretty-magnolia-blooming-at-blue-sky-with-photo-image_2303724.jpg');
+            height: 100vh;
+            width: 100vw;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+        .renewal{
+            background-image: url('data:image/jpeg;base64,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');
+            background-attachment: scroll;
+            height: 100vh;
+            width: 100vw;
+            background-size: 100% 100%;
+        }
+        .photo{
+            top: 30px;
+            left: 50px;
+            background-image: url('https://i.namu.wiki/i/fqnNQjQbmB_m_s7CzSyzXSvUVH3s_Z0HW-_H3dgc5P3QD2B0TtpkRaVAeR3bWX0qOvrEtIopFW5fTIoQboTsNg.webp');
+            position: relative;
+            width: 300px;
+            height: 400px;
+            background-size: 100% 100%;
+        }
+        .in_box{
+            position: absolute;
+            top: 150px;
+            left: 70px;
+        }
+        .detail{
+            margin-bottom: 10px;
+            border: 2px solid black;
+            width: 150px;
+            height: 50px;
+            font-size: 25px;
+            text-align: center;
+            background-color: transparent;
+            cursor: pointer;
+            /*background-color: rgba(255,255,255,0)*/
+            
+        }
+        .reserve{
+            border : 2px solid white;
+            text-align: center;
+            width: 150px;
+            height: 50px;
+            font-size: 25px;
+            text-align: center;
+            color: white;
+            background-color: transparent;
+            cursor: pointer;
+            /*background-color: rgba(255,0,0,0)*/
+        }
+    </style>
+</head>
+<body>
+    <div class ="origin"></div>
+    <div class="renewal">
+        <div class="photo">
+            <div class ="in_box">
+                <div class="detail" onclick="info()">상세정보</div>
+                <div class="reserve" onclick="reserve()">예매하기</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function info(){
+
+        }
+        function reserve(){
+            
+        }
+    </script>
+</body>
+</html>

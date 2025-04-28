@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Card Grid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            max-width: 1000px;
+            justify-content: center;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            padding: 15px;
+            background-color: #6c5ce7;
+            color: white;
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .card-subtitle {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: #f1f1f1;
+            color: #555;
+            border-radius: 20px;
+            font-size: 0.8em;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .like-section {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .like-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: transform 0.2s ease;
+        }
+
+        .like-button:hover {
+            transform: scale(1.2);
+        }
+
+        .like-count {
+            font-size: 0.9em;
+            color: #6c5ce7;
+            font-weight: 600;
+        }
+
+        .card-date {
+            font-size: 0.8em;
+            color: #999;
+        }
+
+        .card-icon {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">웹 디자인 기초</h3>
+                <div class="card-subtitle">디자인 원칙과 기본 개념</div>
+            </div>
+            <div class="card-content">
+                <div class="card-icon">🎨</div>
+                <p class="card-description">웹 디자인의 기본 원칙과 개념을 배워봅니다. 색상, 타이포그래피, 레이아웃 등 디자인의 핵심 요소를 이해하세요.</p>
+                <div class="card-tags">
+                    <span class="card-tag">디자인</span>
+                    <span class="card-tag">UI</span>
+                    <span class="card-tag">기초</span>
+                </div>
+                <div class="card-footer">
+                    <div class="like-section">
+                        <button class="like-button">❤️</button>
+                        <span class="like-count">124</span>
+                    </div>
+                    <span class="card-date">2024.03.15</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">반응형 웹 디자인</h3>
+                <div class="card-subtitle">모든 기기에서 완벽한 경험</div>
+            </div>
+            <div class="card-content">
+                <div class="card-icon">📱</div>
+                <p class="card-description">다양한 화면 크기에 맞게 웹사이트를 설계하는 방법을 배웁니다. 모바일, 태블릿, 데스크톱 등 모든 기기에서 최적의 경험을 제공하세요.</p>
+                <div class="card-tags">
+                    <span class="card-tag">반응형</span>
+                    <span class="card-tag">CSS</span>
+                    <span class="card-tag">모바일</span>
+                </div>
+                <div class="card-footer">
+                    <div class="like-section">
+                        <button class="like-button">❤️</button>
+                        <span class="like-count">98</span>
+                    </div>
+                    <span class="card-date">2024.03.10</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">CSS 애니메이션</h3>
+                <div class="card-subtitle">동적인 웹 경험 만들기</div>
+            </div>
+            <div class="card-content">
+                <div class="card-icon">✨</div>
+                <p class="card-description">CSS를 사용하여 웹 요소에 애니메이션을 추가하는 방법을 배웁니다. 부드러운 전환 효과와 동적인 요소로 사용자 경험을 향상시키세요.</p>
+                <div class="card-tags">
+                    <span class="card-tag">애니메이션</span>
+                    <span class="card-tag">CSS</span>
+                    <span class="card-tag">인터랙션</span>
+                </div>
+                <div class="card-footer">
+                    <div class="like-section">
+                        <button class="like-button">❤️</button>
+                        <span class="like-count">156</span>
+                    </div>
+                    <span class="card-date">2024.03.05</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

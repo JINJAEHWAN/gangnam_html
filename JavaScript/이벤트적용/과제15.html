@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <div>이름: <input type="text" id="name" onkeyup="name1()"/></div> 
+    <span id="spanId">글자 수: </span>
+    <div>나이: <input type="text" id="age" onkeyup="age1()"/></div>
+    <span id="spanId2">.</span><br/>
+    <input type="button" onclick="btn()" value="가입하기"/>
+
+    <script>
+    const name = document.getElementById('name');
+    const age = document.getElementById('age');
+        function name1(){
+            const spanId = document.getElementById('spanId');
+            spanId.innerHTML= "글자 수 : "+ name.value.length;
+        }
+        function age1(){
+            const spanId2 = document.getElementById('spanId2'); 
+            if(age.value>=20){
+                spanId2.innerHTML= "성인입니다.";
+            }else{
+                spanId2.innerHTML= "청소년입니다.";
+            }
+        }
+        function btn(){
+            console.log(name.value.length, age);
+        }
+    </script>
+
+</body>
+</html>

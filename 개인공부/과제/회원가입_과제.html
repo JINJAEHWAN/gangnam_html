@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 폼</title>
+    <style>
+        .out_box{
+            border: 3px solid black;
+        }
+        p{
+            width: 300px;
+            height: 25px;
+            font-size: 15px;
+            text-align: left;
+        }
+        h3{
+            background-color: gray;
+        }
+        .div_a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40vh;
+        }
+
+        .div_b{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .div_a .div_border {
+            background-color: aqua;
+            width: 100px;
+            height: 25px;
+            font-size: 15px;
+            text-align: center;
+        }
+        input[type]{
+            height: 20px;
+            font-size: 15px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="out_box">
+        <form>
+            <div class="div_a">
+                <h3>회원기본정보</h3>
+                <div>
+                    <div class="div_border">아이디:  </div> 
+                    <div class="div_border">비밀번호:  </div> 
+                    <div class="div_border">비밀번호 확인: </div>
+                    <div class="div_border">메일주소: </div>
+                    <div class="div_border">이름: </div>
+                </div>
+                <div>
+                    <input type="text" id="login_id" placeholder="아이디 입력" /><br/>
+                    <input type="password" id="pwd" placeholder="비밀번호 입력" /><br/>
+                    <input type="password" id="pwd_check" placeholder="비밀번호 확인" /><br/>
+                    <input type="email" id="email_a" placeholder="예시-id@domina@com" /> <br/>
+                    <input type="text" id="name" placeholder="이름" /> <br/>
+                </div>
+                <div>
+                    <p>4~12자의 영문 대소문자와 숫자로만 입력.</p>
+                    <p>4~12자의 영문 대소문자와 숫자로만 입력.</p>
+                    <p>예) id@domain.com</p>
+                    <br/>
+                </div>
+            </div>
+            <div class="div_a">
+                <h3>개인 신상 정보</h3>
+                <div>
+                    <div class="div_border">주민등록번호: </div>
+                    <div class="div_border">생년월일: </div>
+                    <div class="div_border">관심분야: </div>
+                    <div class="div_border">자기소개: </div>
+                </div>
+                <div>
+                    <input type="text" id="person_id_first"/>-<input type="password" id="person_id_last"/>
+                    <br/>
+                    <input type="text" id="annual"/>년<br/>
+                    <input type="checkbox" name="interest" value="컴퓨터"/> 컴퓨터
+                    <input type="checkbox" name="interest" value="인터넷"/> 인터넷
+                    <input type="checkbox" name="interest" value="여행"/> 여행
+                    <input type="checkbox" name="interest" value="영화감상"/> 영화감상
+                    <input type="checkbox" name="interest" value="음악감상"/> 음악감상 
+                    <br/>
+                    <textarea name="introducing" id="textarea_a"></textarea>
+                </div>
+                <div>
+                    <p>예) 880501-1234567</p>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+            <div class="div_b">
+                <input type="button" value="회원가입" onclick="register()" />
+                <input type="reset" value="다시 입력" />
+            </div>
+
+
+        </form>
+    </div>
+
+
+    <script>
+
+        function pat_method(ab){
+            var pattern1 = /[0-9]/; //숫자
+            var pattern2 = /[a-zA-Z]/; //영어
+
+            if((pattern1.test(ab.value))||(pattern2.test(ab.value))){
+                    
+                }else{
+                    alert('한글 혹은 특수기호가 아이디 혹은 패스워드에 있습니다.');
+                    return ;
+                }
+        }
+
+
+        function register(){
+
+
+
+            const regist_id = document.getElementById('login_id');
+            const regist_pwd = document.getElementById('pwd');
+            const regist_pwd_check = document.getElementById('pwd_check');  
+            const regist_email = document.getElementById('email_a');
+            const regist_name = document.getElementById('name');
+
+            const regist_per_num1= document.getElementById('person_id_first');
+            const regist_annual =document.getElementById('annual');
+            let ann =0;
+            
+            const regist_interest = document.getElementsByName('interest');
+            let rel_interest = '';
+
+            if((regist_id.value.length>=4) && (regist_id.value.length<=12)){
+                pat_method(regist_id);
+
+            }else{
+                alert('아이디 글자수 부족 혹은 넘침');
+                return ;
+            }
+
+            if((regist_pwd.value.length>=4) && (regist_pwd.value.length<=12)){
+                pat_method(regist_pwd);
+            }else{
+                alert('비밀번호 글자수 부족 혹은 넘침');
+                return ;
+            }
+
+            if(regist_pwd.value=== regist_pwd_check.value){
+
+            }else{
+                alert('비밀번호가 같은지 확인하세요.');
+                return ;
+            }
+
+            if((regist_per_num1.value.substring(0,1)===0)||
+            (regist_per_num1.value.substring(0,1)===1)||
+            (regist_per_num1.value.substring(0,1)===2)){
+                ann ='20'+regist_per_num1.value(substring(0,2));
+
+                if(regist_annual.value === ann){
+                    alert('생년월일이 맞습니다.')
+                    return ;
+                }else{
+                    alert('생년월일이 틀립니다.')
+                    return ;
+                }
+                
+            }else{
+                ann ='19'+regist_per_num1.value.substring(0,2);
+                if(regist_annual.value === ann){
+                    alert('생년월일이 맞습니다.')
+                    return ;
+                }else{
+                    alert('생년월일이 틀립니다.')
+                    return ;
+                }
+            }
+
+            for(let i=0; i< regist_interest.length;i++){
+                if(regist_interest[i].checked){
+                    rel_interest = " " + regist_interest[i].value;
+                }
+            }
+            console.log(rel_interest);
+
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type='text'],input [type='email']{
+            border: 1px solid;
+            border-radius: 5px;
+        }
+        .div_a{
+            margin-top: 10px;
+            border-radius: 10px;
+            border: 1px solid black;
+            display: flex;
+            width: 400px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .div_a input[type="text"] {
+            width: 100%;
+            outline: none;
+            border: none;
+
+            font-size: 20px;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .div_a .btn {
+            margin: 5px;
+            width: 100px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #16513d;
+            color: white;
+
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .dis_none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h3>회원가입</h3>
+    <p>회원이 되어 다양한 혜택을 경험해 보세요!</p>
+    <p>아이디</p>
+    <span class="dis_none" id="spanId">사용할 수 없는 아이디입니다.</span><br/>
+    <div class="div_a">
+        <input id="text_id" type="text" max="22" /><div class="btn" onclick="중복체크()">중복체크</div>
+    </div>
+    <div class="div_a">
+        <input type="text" />
+    </div>
+    <script>
+        function 중복체크(){
+            const spanId = document.getElementById('spanId');
+            const text_id = document.getElementById('text_id');
+            if(text_id.value==='id12345'){
+                spanId.style.display="block";
+            }else{
+                spanId.style.display="none";
+            }
+        }
+    </script>
+</body>
+</html>
